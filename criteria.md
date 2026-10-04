@@ -19,13 +19,14 @@ pipeline earns credit; *"80% seemed reasonable"* does not.
 
 ## 1. Retrieved chunks contain the answer
 
-For at least 4 of my 5 test questions, the retrieved chunks include one that
+For at least 3 of my 5 test questions, the retrieved chunks include one that
 contains the answer.
 
 **Why this target:**
 <!-- e.g. "One of my questions is about a topic only two documents mention, so
      I expect that one to be hard." -->
-
+This is the case because 3 of the questions have answers explicilty stated in their 
+respective md files
 ---
 
 ## 2. Every answer names a source
@@ -35,7 +36,10 @@ Every answer the system produces names at least one source document.
 **Why this target:**
 <!-- Why all five and not four? What about your setup makes that achievable —
      or what would have to go wrong for it not to be? -->
-
+Every answer generated has a file from which its answer is said. This criteria
+encourages the user to read further in that document if they like.
+If there is no answer then there should be no doc referenced which provides trust in the rag
+and that it is not making anything up from the documents
 ---
 
 ## 3. The relevance gate stops out-of-corpus questions
@@ -52,12 +56,17 @@ in at least 4 of 5 tries.
 **Why this target:**
 <!-- What did your distances look like when you set the cutoff in Milestone 4?
      Was there a clean gap, or did the two groups overlap? -->
-
+To make sure the model stays with in the scope of the ingested rag documents
+and the user not be exposed to non corpus information that can directly contradict
+information with the rag
 ---
 
 ## 4. Something about your chunks
-
+Given that the model shows/knows the count of both the in and out tokens, that the model needs a sufficient
+number of tokens to produce a plausible response, it should be the case that if the corpus is ingested
+accordingly, the out tokes should be less the in tokes. 
 <!-- YOU WRITE THIS ONE.
+It is difficult to pass one because models can produce a large output. While this is not exactly a number, this is relative indication that the model has been chunked appropriately on a general scale of comparison or relationship of the parts
 
      How would you know if your chunks were the right size? Name something
      countable or observable.
@@ -78,8 +87,13 @@ in at least 4 of 5 tries.
 ---
 
 ## 5. Your choice
-
+When a compound question is asked and all the information that could provide a robust 
+and complete answer must come from more than one document, then cross referencing is achieved if the minimum of two
+documents is returned
 <!-- YOU WRITE THIS ONE TOO.
+A lot of the users want a single answer but the question is spread across multiple ideas. Therefore this is an 
+important criteria because it ensures the model knows which information in one chunk pertains to another
+and the combination of the docs can produce one answer
 
      Pick something you actually care about getting right. It could be about
      speed, about refusals, about a particular kind of question your corpus

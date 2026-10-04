@@ -53,29 +53,72 @@
 
      Milestone 3. -->
 
-**Chunk 1** — source: `` — produced by: ``
+**Chunk 1** — source: guide_accessibility.md#0  `` — produced by: chunker.py::split_documents``
 
 ```
+# Getting around the region with limited mobility
+
+An honest assessment rather than a promotional one. Some of these places are
+difficult and it is better to know in advance.
+
+## Straightforward
+
+**Thornby Wells** is the easiest town in the region. It is flat, compact, and
+everything is wi
 ```
 
-**Chunk 2** — source: `` — produced by: ``
+**Chunk 2** — source: guide_accessibility.md#4  `` — produced by: chunker.py::split_documents``
 
 ```
+throughout.
+
+**Marchwood** has a modern tram network with level boarding on all four lines,
+running every 8 minutes on weekdays. The city museum and covered market are both
+step-free. The distances between districts are the main consideration.
+
+**Brightwater** is level along the river and
 ```
 
-**Chunk 3** — source: `` — produced by: ``
+**Chunk 3** — source: guide_accessibility.md#8  `` — produced by: chunker.py::split_documents``
 
 ```
+rivals.
+
+## Mixed
+
+**Pellew Sands** has a two-mile seafront that is flat the whole way, and
+everything of interest is on it or one street back. The land train runs the
+length of the promenade hourly between Easter and September. The beach itself is
+hard sand and manageable at low tide.
+
+**
 ```
 
-**Chunk 4** — source: `` — produced by: ``
+**Chunk 4** — source: source: guide_accessibility.md#12  `` — produced by: chunker.py::split_documents``
 
 ```
+re.
+
+## Difficult
+
+**Kestrelford** is built on a slope and the walk up from the lower car park is
+steeper than it looks on a map. There is no transport within the town.
+
+**Halden Bay** is built on three levels connected by stepped lanes. The harbour
+front is level; everything above it is n
 ```
 
-**Chunk 5** — source: `` — produced by: ``
+**Chunk 5** — source: guide_accessibility.md#16  `` — produced by: chunker.py::split_documents``
 
 ```
+and
+footpaths rather than pavements. **Elder Ness** is shingle and a single street.
+
+## Practical
+
+The nearest full hospital is in Marchwood. Brightwater has a hospital;
+Kestrelford, Halden Bay, Corry Vale, Givens Mill and Elder Ness have minor
+injuries units with limited hours or nothing
 ```
 
 ## Sample Answer
@@ -84,14 +127,96 @@
      visible. Milestone 4. -->
 
 **Question:**
-
+"which city or towns that are wheelchair accessible and say which of those towns have trains"
 **Answer:**
 
 ```
+ (best distance 0.505, cutoff 0.65)
+
+======================================================================
+System instruction sent with the prompt
+======================================================================
+You answer questions using only the documents provided to you.
+
+Rules:
+- Use only the information in the documents below. Do not use anything you know from elsewhere.
+- If the documents don't cover the question, say you don't have enough information. Do not guess.
+- Name the document your answer came from, using the filename given in each excerpt.
+- Be brief. Two or three sentences is usually enough.
+
+======================================================================
+The assembled prompt, exactly as sent
+======================================================================
+Documents:
+
+[from guide_accessibility.md]
+pushchair, let alone a wheelchair.
+
+**Corry Vale** has no public transport, villages two to four miles apart, and
+footpaths rather than pavements. **Elder Ness** is shingle and a single street.
+
+## Practical
+
+The nearest full hospital is in Marchwood. Brightwater has a hospital;
+Kestrelfo
+
+[from guide_accessibility.md]
+these places are
+difficult and it is better to know in advance.
+
+## Straightforward
+
+**Thornby Wells** is the easiest town in the region. It is flat, compact, and
+everything is within three minutes of everything else. Parking is free for two
+hours anywhere in town and the station is centr
+
+[from guide_accessibility.md]
+easiest town in the region. It is flat, compact, and
+everything is within three minutes of everything else. Parking is free for two
+hours anywhere in town and the station is central. The pump room and gardens
+are level throughout.
+
+**Marchwood** has a modern tram network with level boardi
+
+[from guide_accessibility.md]
+he river. The mill tour involves
+stairs and the machinery floor is not accessible; the tearoom and riverside are.
+
+## Difficult
+
+**Kestrelford** is built on a slope and the walk up from the lower car park is
+steeper than it looks on a map. There is no transport within the town.
+
+**Halden B
+
+[from guide_accessibility.md]
+# Getting around the region with limited mobility
+
+An honest assessment rather than a promotional one. Some of these places are
+difficult and it is better to know in advance.
+
+## Straightforward
+
+**Thornby Wells** is the easiest town in the region. It is flat, compact, and
+everything is wi
+
+---
+
+Question: which city or towns that are wheelchair accessible and say which of those towns have trains
+
+Answer using only the documents above, and name the file you used.
+======================================================================
+
+Based on the provided document, **Thornby Wells** is described as the easiest town in the region, flat, compact, and has a central station. **Marchwood** has a modern tram network with level boarding and is where the nearest full hospital is located (though the text does not explicitly use the words "wheelchair accessible," it details level boarding for the tram). 
+
+Source: `guide_accessibility.md`
+
+Sources retrieved: guide_accessibility.md
+
 ```
 
 **My relevance cutoff:**
-
+.65
 <!-- The number you set in config.py, and how you got there.
 
      You ran five questions your corpus covers and the five in OUT_OF_SCOPE
@@ -103,7 +228,16 @@
 
 | Question | In corpus? | Best distance |
 |---|---|---|
-|  |  |  |
+| "what city is better for being by water" | yes | 0.408 |
+| "list 3 facts about halden bay" | yes | 0.505 |
+| "how far is brightwater from pellew sands by plane" | ? | 0.585 |
+| "is there any mention of weather or cold season for pellew sands" | yes| 0.430  |
+| "which city or towns that are wheelchair accessible and say which of those towns have trains" | yes| 0.487 |
+|"What is the capital of Mongolia?" | no | 0.798 |
+| "How do I change the oil in a diesel engine?" | no | 0.885 |
+| "Who won the 1994 World Cup?" | no | 1.022 |
+| "What is the recommended dosage of ibuprofen for a headache?" | no | 0.874 |
+| "How do I write a for loop in Rust?" | no | 0.929 |
 
 ## How I Used AI
 
@@ -117,9 +251,10 @@
      Milestone 5. -->
 
 **1.**
+did not use. did not need to
 
 **2.**
-
+did not use. did not need to
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
      claims earns nothing.
