@@ -24,9 +24,9 @@ names a target of "4 of 5", and four of three is not a thing.
 QUESTIONS = [
     # {"question": "...", "expects": "..."},
     {"question": "what city is better for being by water", "expects": "halden bay"},
-    {"question": "list all the facts about halden bay", "expects": "fish port"},
-    {"question": "how far is brightwater from Niagara falls", "expects": "no information"},
-    {"question": "is there any mention of weather", "expects": "temperature"},
+    {"question": "list 3 facts about halden bay", "expects": "fish port"},
+    {"question": "how far is brightwater from pellew sands by plane", "expects": "no information"},
+    {"question": "is there any mention of weather or cold season for pellew sands", "expects": "temperature"},
     {"question": "which city or towns that are wheelchair accessible and say which of those towns have trains", "expects": "Brightwater"},
 ]
 
